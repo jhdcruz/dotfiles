@@ -58,8 +58,8 @@ color2 AAAAAA
 color3 888888
 
 # Red
-color4 E60000
-color5 ff1a1a
+color4 bc050e
+color5 D3090D
 color6 ff3333
 
 #######################################################################
@@ -68,8 +68,9 @@ color6 ff3333
 TEXT
 ${offset 92}${font Ubuntu:size=12,bold}${color5}SYSTEM
 ${voffset -8}${hr 2}
-${font Ubuntu:size=10}${color1}${alignc}$sysname $kernel
+${font Ubuntu:size=10}${color1}$sysname-$kernel${alignr}${color3}Battery: ${color1}%${battery_percent}
 ${font Ubuntu:size=10,bold}${color1}$USER@$nodename${alignr}${font Ubuntu:size=10}${color3}Uptime: ${color1}$uptime
+
 
 # CPU
 ${offset 105}${font Ubuntu:size=12,bold}${color5}CPU
