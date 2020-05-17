@@ -87,7 +87,7 @@ ${font Ubuntu:size=10}${color3}${top name 5}${alignr}${top cpu 5}%
 # MEMORY
 ${offset 105}${font Ubuntu:size=12,bold}${color5}MEM
 ${voffset -8}${hr 2}
-${voffset 3}${color}${mem}${alignr}${color4}${memmax}
+${voffset 3}${color5}${mem}${alignr}${color4}${memmax}
 ${voffset -13}
 ${font Ubuntu:size=10}${color4}${top_mem name 1}${alignr}${top_mem mem 1}%
 ${font Ubuntu:size=10}${color1}${top_mem name 2}${alignr}${top_mem mem 2}%
