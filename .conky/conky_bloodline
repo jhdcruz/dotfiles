@@ -53,12 +53,12 @@ uppercase no
 default_color FFFFFF
 
 # Shades of Gray
-color1 DDDDDD
-color2 AAAAAA
-color3 888888
+color1 FF0000
+color2 BC050E
+color3 A3050D 
 
 # Red
-color4 bc050e
+color4 8A040B
 color5 D3090D
 color6 ff3333
 
@@ -78,8 +78,8 @@ ${voffset -8}${hr 2}
 ${voffset 0}${cpugraph 40,240 FF0000 FF0000}
 
 ${voffset -45}
-${font Ubuntu:size=10}${color4}${top name 1}${alignr}${top cpu 1}%
-${font Ubuntu:size=10}${color1}${top name 2}${alignr}${top cpu 2}%
+${font Ubuntu:size=10}${color1}${top name 1}${alignr}${top cpu 1}%
+${font Ubuntu:size=10}${color2}${top name 2}${alignr}${top cpu 2}%
 ${font Ubuntu:size=10}${color2}${top name 3}${alignr}${top cpu 3}%
 ${font Ubuntu:size=10}${color3}${top name 4}${alignr}${top cpu 4}%
 ${font Ubuntu:size=10}${color3}${top name 5}${alignr}${top cpu 5}%
@@ -87,10 +87,10 @@ ${font Ubuntu:size=10}${color3}${top name 5}${alignr}${top cpu 5}%
 # MEMORY
 ${offset 105}${font Ubuntu:size=12,bold}${color5}MEM
 ${voffset -8}${hr 2}
-${voffset 3}${mem 40,300 FF0000 FF0000}${alignr}${memmax 40,300 FF0000 FF0000}
+${voffset 3}${color1}${mem}${alignr}${color2}${memmax}
 ${voffset -13}
-${font Ubuntu:size=10}${color4}${top_mem name 1}${alignr}${top_mem mem 1}%
-${font Ubuntu:size=10}${color1}${top_mem name 2}${alignr}${top_mem mem 2}%
+${font Ubuntu:size=10}${color1}${top_mem name 1}${alignr}${top_mem mem 1}%
+${font Ubuntu:size=10}${color2}${top_mem name 2}${alignr}${top_mem mem 2}%
 ${font Ubuntu:size=10}${color2}${top_mem name 3}${alignr}${top_mem mem 3}%
 ${font Ubuntu:size=10}${color3}${top_mem name 4}${alignr}${top_mem mem 4}%
 ${font Ubuntu:size=10}${color3}${top_mem name 4}${alignr}${top_mem mem 5}%
@@ -100,8 +100,8 @@ ${offset 102}${font Ubuntu:size=12,bold}${color5}DISKS
 ${voffset -8}${hr 2}
 ${voffset -8}
 ${diskiograph 30,240 FF0000 FF0000}
-${font Ubuntu:size=9,bold}${color1}Read: ${font Ubuntu:size=9}${diskio_read}${alignr}${font Ubuntu:size=9,bold}Write: ${font Ubuntu:size=9}${diskio_write}
-${font Ubuntu:size=9,bold}${color1}Free: ${font Ubuntu:size=9}${fs_free /}${alignr}${font Ubuntu:size=9,bold}Used: ${font Ubuntu:size=9}${fs_used /}
+${font Ubuntu:size=9,bold}${color1}Read: ${font Ubuntu:size=9}${color2}${diskio_read}${alignr}${font Ubuntu:size=9,bold}${color1}Write: ${font Ubuntu:size=9}${color2}${diskio_write}
+${font Ubuntu:size=9,bold}${color1}Free: ${font Ubuntu:size=9}${color2}${fs_free /}${alignr}${font Ubuntu:size=9,bold}${color1}Used: ${font Ubuntu:size=9}${color2}${fs_used /}
 
 # NETWORK
 ${offset 88}${font Ubuntu:size=12,bold}${color5}NETWORK
