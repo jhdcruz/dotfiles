@@ -108,7 +108,7 @@ ${font Ubuntu:size=9,bold}${color1}Free: ${font Ubuntu:size=9}${color2}${fs_free
 # NETWORK
 ${offset 88}${font Ubuntu:size=12,bold}${color5}NETWORK
 ${voffset -8}${hr 2}
-${color1}${font Ubuntu:size=9,bold}Up: ${alignr}${font Ubuntu:size=9}$color2${upspeed wlp4s0} / ${totalup}
+${color2}${font Ubuntu:size=9,bold}Up: ${alignr}${font Ubuntu:size=9}${color1}${upspeed wlp4s0}
 ${upspeedgraph wlp4s0 35,240 800000 0FF0000 100 -l}
-${color1}${font Ubuntu:size=9,bold}Down: ${alignr}${font Ubuntu:size=9}$color2${downspeed wlp4s0} / ${totaldown}
+${color2}${font Ubuntu:size=9,bold}Down: ${alignr}${font Ubuntu:size=9}${color1}${downspeed wlp4s0}
 ${downspeedgraph wlp4s0 35,240 800000 0FF0000 100 -l}
