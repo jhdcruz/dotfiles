@@ -1,27 +1,69 @@
+#####################################################
+# All keybinds are defaults.
+#####################################################
+
+# GNOME
+#####################################################
+# swipe:
+#   3: 
+#     left: 
+#       command: 'xdotool key alt+Right'
+#     right: 
+#       command: 'xdotool key alt+Left'
+#     up: 
+#       command: 'xdotool key super+a'
+#     down: 
+#       command: 'xdotool key super'
+#   4:
+#     left: 
+#       command: 'xdotool key ctrl+alt+Down'
+#     right: 
+#       command: 'xdotool key ctrl+alt+Up'
+#     up: 
+#       command: 'xdotool key ctrl+alt+Down'
+#     down: 
+#       command: 'xdotool key ctrl+alt+Up'
+# pinch:
+#   in:
+#     command: 'xdotool key ctrl+plus'
+#   out:
+#      command: 'xdotool key ctrl+minus'
+
+# threshold:
+#   swipe: 0.4
+#   pinch: 0.4
+
+# interval:
+#   swipe: 0.8
+#   pinch: 0.1
+#####################################################
+
+# XFCE
+#####################################################
 swipe:
   3: 
     left: 
-      command: 'xdotool key alt+Right'
+      command: 'xdotool key ctrl+alt+Right' # Switch workspace ->
     right: 
-      command: 'xdotool key alt+Left'
+      command: 'xdotool key ctrl+alt+Left' # Switch workspace <-
     up: 
-      command: 'xdotool key super+a'
+      command: 'xdotool key super+d' # Show/Hide desktop
     down: 
-      command: 'xdotool key super'
+      command: 'xdotool key super+d' # Show/Hide desktop
   4:
     left: 
-      command: 'xdotool key ctrl+alt+Down'
+      command: 'xdotool key super+f' # Open File Manager
     right: 
-      command: 'xdotool key ctrl+alt+Up'
+      command: 'xfce4-taskmanager'  # Open XFCE Task Manager
     up: 
-      command: 'xdotool key ctrl+alt+Down'
-    down: 
-      command: 'xdotool key ctrl+alt+Up'
+      command: 'xdotool key super+t' # Open Terminal
+    down:
+      command: 'xfce4-popup-whiskermenu' # Open Whisker Menu
 pinch:
   in:
-    command: 'xdotool key ctrl+plus'
+    command: 'xdotool key ctrl+plus' # Zoom In
   out:
-     command: 'xdotool key ctrl+minus'
+     command: 'xdotool key ctrl+minus' # Zoom Out
 
 threshold:
   swipe: 0.4
@@ -30,3 +72,4 @@ threshold:
 interval:
   swipe: 0.8
   pinch: 0.1
+#####################################################
