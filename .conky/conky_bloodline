@@ -1,9 +1,11 @@
 #==============================================================================
-# CONKYRC_REDLINE
+# CONKYRC_BLOODLINE
 # Date    : 05/17/2020
 # Author  : jhdcruz
 # Version : v1.0
 # License : MIT License
+#
+# Derived from: conky_redline
 #==============================================================================
 
 background yes
