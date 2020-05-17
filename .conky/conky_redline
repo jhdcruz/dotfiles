@@ -96,7 +96,7 @@ ${font Ubuntu:size=10}${color3}${top_mem name 4}${alignr}${top_mem mem 4}%
 ${font Ubuntu:size=10}${color3}${top_mem name 4}${alignr}${top_mem mem 5}%
 
 # DISK USAGE
-${offset 102}${font Ubuntu:size=12,bold}${color5}DISKS
+${offset 104}${font Ubuntu:size=12,bold}${color5}DISK
 ${voffset -8}${hr 2}
 ${voffset -8}
 ${diskiograph 30,240 FF0000 FF0000}
