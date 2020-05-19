@@ -69,7 +69,7 @@ TEXT
 ${offset 92}${font Ubuntu:size=12,bold}${color5}SYSTEM
 ${voffset -8}${hr 2}
 ${font Ubuntu:size=10}${color1}$sysname-$kernel${alignr}${color3}Battery: ${color1}%${battery_percent}
-${font Ubuntu:size=10,bold}${color1}$USER@$nodename${alignr}${font Ubuntu:size=10}${color3}Uptime: ${color1}$uptime
+${font Ubuntu:size=10,bold}${color1}$USER@$nodename${alignr}${offset 14}${font Ubuntu:size=10}${color3}Uptime: ${color1}$uptime
 
 
 # CPU
