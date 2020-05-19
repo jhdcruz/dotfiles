@@ -1,0 +1,28 @@
+[user]
+	email = jhdcruz00@gmail.com
+	name = jhdcruz
+	signingkey = 370B1324EBF79D859F7AF0FF3F9946CF7346D333
+[core]
+	editor = nano
+	longpaths = true
+	autocrlf = false
+[commit]
+	gpgSign = true
+[tag]
+	forceSignAnnotated = true
+[alias]
+	pl = pull
+	cm = commit -m
+	cam = commit -am
+	st = status
+	br = branch
+	ps = push
+	cl = clone
+[gpg]
+	program = gpg
+[gui]
+	pruneduringfetch = true
+[push]
+	recurseSubmodules = check
+[pull]
+	rebase = preserve
