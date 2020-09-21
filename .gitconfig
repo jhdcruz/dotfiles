@@ -1,7 +1,6 @@
 [user]
 	email = jhdcruz00@gmail.com
 	name = jhdcruz
-	signingkey = 370B1324EBF79D859F7AF0FF3F9946CF7346D333
 [core]
 	editor = nano
 	longpaths = true
