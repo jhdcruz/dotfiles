@@ -1,27 +1,31 @@
 [user]
-	email = jhdcruz00@gmail.com
-	name = jhdcruz
+        email = 
+        name = 
+        signingkey = 
 [core]
-	editor = nano
-	longpaths = true
-	autocrlf = false
+        editor = nvim
+        longpaths = true
+        autocrlf = true
 [commit]
-	gpgSign = true
+        gpgSign = true
 [tag]
-	forceSignAnnotated = true
+        forceSignAnnotated = true
 [alias]
-	pl = pull
-	cm = commit -m
-	cam = commit -am
-	st = status
-	br = branch
-	ps = push
-	cl = clone
+        pl = pull
+        cm = commit -m
+        cam = commit -am
+        st = status
+        br = branch
+        ps = push
+        cl = clone
+        sw = switch
+        undo = reset HEAD~
 [gpg]
-	program = gpg
+        program = gpg
 [gui]
-	pruneduringfetch = true
+        pruneduringfetch = true
+        encoding = UTF-8
 [push]
-	recurseSubmodules = check
-[pull]
-	rebase = preserve
+        recurseSubmodules = check
+[gc]
+        autoDetach = false
