@@ -1,5 +1,8 @@
 # ###########################
-#     WSL1/2 Supported
+#  Requires:
+#    - colorls
+#    - ranger
+#    - neovim
 # ###########################
 
 # sudo
