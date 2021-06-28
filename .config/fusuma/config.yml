@@ -1,34 +1,35 @@
 #####################################################
-# All keybinds are defaults.
-#####################################################
-
-# GNOME
+#  GNOME 3/4
 #####################################################
 # swipe:
-#   3: 
-#     left: 
-#       command: 'xdotool key alt+Right'
-#     right: 
-#       command: 'xdotool key alt+Left'
-#     up: 
-#       command: 'xdotool key super+a'
-#     down: 
-#       command: 'xdotool key super'
 #   4:
-#     left: 
-#       command: 'xdotool key ctrl+alt+Down'
-#     right: 
-#       command: 'xdotool key ctrl+alt+Up'
-#     up: 
-#       command: 'xdotool key ctrl+alt+Down'
-#     down: 
-#       command: 'xdotool key ctrl+alt+Up'
+#     up:
+#       command: 'xdotool key Ctrl+Super+Down'
+#     down:
+#       command: 'xdotool key Ctrl+Super+Up'
+#     left:
+#       command: 'xdotool key Ctrl+Super+Left'
+#     right:
+#       command: 'xdotool key Ctrl+Super+Right'
+
+#   3:
+#     up:
+#       command: 'xdotool key Super'
+#     down:
+#       command: 'xdotool key Super+d'
+
+# pinch:
+#   in:
+#     command: 'xdotool key Super+a'
+#   out:
+#      command: 'xdotool key Super'
+     
 # pinch:
 #   in:
 #     command: 'xdotool key ctrl+plus'
 #   out:
-#      command: 'xdotool key ctrl+minus'
-
+#     command: 'xdotool key ctrl+minus'
+    
 # threshold:
 #   swipe: 0.4
 #   pinch: 0.4
@@ -36,8 +37,8 @@
 # interval:
 #   swipe: 0.8
 #   pinch: 0.1
-#####################################################
 
+#####################################################
 # XFCE
 #####################################################
 swipe:
@@ -72,4 +73,3 @@ threshold:
 interval:
   swipe: 0.8
   pinch: 0.1
-#####################################################
