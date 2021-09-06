@@ -3,6 +3,11 @@
 #    - colorls
 #    - ranger
 #    - neovim
+#
+# ###########################
+#  if [ -f ~/.bash_aliases ]; then
+#  . ~/.bash_aliases
+#  fi
 # ###########################
 
 # pacman
@@ -18,13 +23,12 @@ alias yayq='yay -Qs'
 # system
 alias _='sudo'
 alias __='sudo -i'
+alias se='sudo -e'
 alias sctl='sudo systemctl'
 
 # Working Directory
 alias cwd='cd ~/Code'
 alias cwdl='cd ~/Code/lib'
-alias cwdp='cd ~/Code/proj'
-alias cwda='cd ~/Code/acads'
 
 # config
 alias vbrc='vi ~/.bashrc'
@@ -44,19 +48,26 @@ alias rgr='ranger ~/'
 
 # edit
 alias vi='nvim'
-alias vedit='nano ~/.config/nvim/init.vim'
-alias vide='nvim +NERDTree'
+alias nde='~/Code/lib/neovide/target/release/neovide'
+alias vedit='nvim ~/.config/nvim/init.vim'
+alias vide='~/Code/lib/neovide/target/release/neovide +NERDTree'
 alias viplug='nvim +PlugInstall'
+alias vgit='nvim ~/.gitconfig'
 
 # cmd
 alias g='git'
 alias y='yarn'
 alias ws='windscribe'
+alias vpn='sudo systemctl start windscribe'
+alias plex='sudo systemctl start plexmediaserver'
+alias bt='sudo systemctl start bluetooth'
+alias smbs='sudo systemctl start smb'
 
 # etc
 alias cls='clear'
 alias k='clear'
 alias rcref='. ~/.bashrc'
+alias bye='shutdown now'
 
 # input
 alias controller='sudo xboxdrv --detach-kernel-driver --led 2' # For PS3 Controller
