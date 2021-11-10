@@ -47,20 +47,23 @@ alias rg='ranger .'
 alias rgr='ranger ~/'
 
 # edit
-alias vi='nvim'
-alias nde='~/Code/lib/neovide/target/release/neovide'
+alias vim='nvim'
 alias vedit='nvim ~/.config/nvim/init.vim'
-alias vide='~/Code/lib/neovide/target/release/neovide +NERDTree'
+alias vide='nvim +NERDTree'
 alias viplug='nvim +PlugInstall'
 alias vgit='nvim ~/.gitconfig'
 
 # cmd
 alias g='git'
+alias gsync='git pl && git ps'
 alias y='yarn'
 alias ws='windscribe'
 alias vpn='sudo systemctl start windscribe'
+alias svpn='sudo systemctl stop windscribe'
 alias plex='sudo systemctl start plexmediaserver'
+alias splex='sudo systemctl stop plexmediaserver'
 alias bt='sudo systemctl start bluetooth'
+alias sbt='sudo systemctl stop bluetooth'
 alias smbs='sudo systemctl start smb'
 
 # etc
@@ -68,6 +71,11 @@ alias cls='clear'
 alias k='clear'
 alias rcref='. ~/.bashrc'
 alias bye='shutdown now'
+
+# windscribe
+alias wss='windscribe status'
+alias wsc='windscribe connect'
+alias wsd='windscribe disconnect'
 
 # input
 alias controller='sudo xboxdrv --detach-kernel-driver --led 2' # For PS3 Controller
