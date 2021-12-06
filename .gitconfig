@@ -5,7 +5,6 @@
 [core]
         editor = nvim
         longpaths = true
-        autocrlf = true
 [commit]
         gpgSign = true
 [tag]
