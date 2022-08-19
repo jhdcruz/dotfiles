@@ -1,22 +1,12 @@
-# ###########################
-#  Requires:
-#    - colorls
-#    - ranger
-#    - neovim
-#
-# ###########################
-#  if [ -f ~/.bash_aliases ]; then
-#  . ~/.bash_aliases
-#  fi
-# ###########################
-
 # pacman
 alias pac='sudo pacman -Sy'
-alias pacs='sudo pacman -Syu'
+alias pacss='sudo pacman -Syu'
+alias pacs='sudo SKIP_AUTOSNAP= pacman -Syu'
 alias pacref='sudo pacman -Syyu'
 alias pacr='sudo pacman -Rs'
 alias pacq='pacman -Qs'
-alias yays='yay -Sy'
+alias yays='yay -Sy'	
+alias yayy='yay -Sua'
 alias yayr='yay -Rs'
 alias yayq='yay -Qs'
 
@@ -25,41 +15,45 @@ alias _='sudo'
 alias __='sudo -i'
 alias se='sudo -e'
 alias sctl='sudo systemctl'
+alias lctl='loginctl'
+
+# colorls
+alias ls='colorls --sd'
+alias la='colorls -a --sd'
+alias ll='colorls -lA --sd'
+alias l='colorls --sd'
+
+# dev
+alias pm='pnpm'
+alias lg='lazygit'
+alias g='git'
+alias gsync='git pl && git ps'
+alias y='yarn'
 
 # Working Directory
-alias cwd='cd ~/Code'
-alias cwdl='cd ~/Code/lib'
+alias cwda='cd ~/Documents/Acads'
+alias cwdac='cd ~/Documents/Acads/CIT508'
+alias cwd='cd ~/Projects'
+alias cwdl='cd ~/Projects/lib'
 
 # config
 alias vbrc='vi ~/.bashrc'
 alias vbas='vi ~/.bash_aliases'
 alias ssha='eval `ssh-agent -s`'
 
-# colorls
-alias ls='colorls --sd'
-alias la='colorls -a --sd'
-alias ll='colorls -lA --sd'
-alias lg='colorls -lA --sd --gs'
-alias l='colorls --sd'
-
 # file
 alias rg='ranger .'
 alias rgr='ranger ~/'
 
 # edit
-alias vim='nvim'
+alias vi='nvim'
 alias vedit='nvim ~/.config/nvim/init.vim'
 alias vide='nvim +NERDTree'
 alias viplug='nvim +PlugInstall'
 alias vgit='nvim ~/.gitconfig'
+alias gef='gnome-text-editor'
 
-# cmd
-alias g='git'
-alias gsync='git pl && git ps'
-alias y='yarn'
-alias ws='windscribe'
-alias vpn='sudo systemctl start windscribe'
-alias svpn='sudo systemctl stop windscribe'
+# services
 alias plex='sudo systemctl start plexmediaserver'
 alias splex='sudo systemctl stop plexmediaserver'
 alias bt='sudo systemctl start bluetooth'
@@ -71,11 +65,3 @@ alias cls='clear'
 alias k='clear'
 alias rcref='. ~/.bashrc'
 alias bye='shutdown now'
-
-# windscribe
-alias wss='windscribe status'
-alias wsc='windscribe connect'
-alias wsd='windscribe disconnect'
-
-# input
-alias controller='sudo xboxdrv --detach-kernel-driver --led 2' # For PS3 Controller
