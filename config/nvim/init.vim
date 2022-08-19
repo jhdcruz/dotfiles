@@ -5,8 +5,12 @@ call plug#begin('~/.vim/plugged')
 Plug 'junegunn/vim-easy-align'
 Plug 'wakatime/vim-wakatime'
 
-" Ayu theme
-Plug 'ayu-theme/ayu-vim'
+" Themes
+Plug 'morhetz/gruvbox'
+
+" Airline
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 
 " Any valid git URL is allowed
 Plug 'https://github.com/junegunn/vim-github-dashboard.git'
@@ -46,11 +50,11 @@ call plug#end()
 " ================== LET ===================
 
 " NerdTree
-let NERDTreeIgnore=['\node_modules$', '**/node_modules$']
+let NERDTreeIgnore=['git', 'node_modules$', '**/node_modules$']
 let g:NERDTreeShowHidden = 1
 let g:NERDTreeMinimalUI = 1
 let g:NERDTreeStatusline = ''
-let g:coc_global_extensions = ['coc-emmet', 'coc-css', 'coc-html', 'coc-json', 'coc-prettier', 'coc-tsserver']
+let g:coc_global_extensions = ['coc-java', 'coc-emmet', 'coc-css', 'coc-html', 'coc-json', 'coc-prettier', 'coc-tsserver']
 
 " Fuzzy Finder
 let g:fzf_action = {
@@ -59,20 +63,29 @@ let g:fzf_action = {
   \ 'ctrl-v': 'vsplit'
   \}
 
-" Color Scheme Variant
-let ayucolor="dark"
+let g:gruvbox_italic = 1
+let g:gruvbox_contrast_dark='hard'
+
+let g:airline_theme='base16_gruvbox_dark_hard'
 
 " ================== SET ===================
 
-colorscheme ayu
+colorscheme gruvbox 
 set termguicolors
+
 
 " open new split panes to right and below
 set splitright
 set splitbelow
 
+" Disable backups
+set nobackup
+set nowritebackup
+
 " Tab
-set ts=2
+set tw=0
+set ts=4
+set shiftwidth=4
 set expandtab
 
 " Line numbers
@@ -102,5 +115,8 @@ nnoremap <A-l> <C-w>l
 nnoremap <silent> <C-b> :NERDTreeToggle<CR>
 nnoremap <C-p> :FZF<CR>
 
+" Format with prettier
+noremap <A-s> :CocCommand prettier.formatFile
+
 " ================== COMMANDS ===================
-command! -nargs=0 Prettier :CocCommand prettier.formatFile
+command! -nargs=0 Fmt :CocCommand prettier.formatFile
