@@ -44,6 +44,9 @@ Plug 'yuezk/vim-js'
 Plug 'maxmellon/vim-jsx-pretty'
 Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 
+" Auto pairs
+Plug 'windwp/nvim-autopairs'
+
 " Initialize plugin system
 call plug#end()
 
@@ -64,9 +67,9 @@ let g:fzf_action = {
   \}
 
 let g:gruvbox_italic = 1
-let g:gruvbox_contrast_dark='hard'
+let g:gruvbox_contrast_dark='medium'
 
-let g:airline_theme='base16_gruvbox_dark_hard'
+let g:airline_theme='base16_gruvbox_dark_medium'
 
 " ================== SET ===================
 
@@ -78,9 +81,17 @@ set termguicolors
 set splitright
 set splitbelow
 
-" Disable backups
+" Some servers have issues with backup files, see #649.
 set nobackup
 set nowritebackup
+
+" Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
+" delays and poor user experience.
+set updatetime=300
+
+" Always show the signcolumn, otherwise it would shift the text each time
+" diagnostics appear/become resolved.
+set signcolumn=yes
 
 " Tab
 set tw=0
@@ -118,5 +129,26 @@ nnoremap <C-p> :FZF<CR>
 " Format with prettier
 noremap <A-s> :CocCommand prettier.formatFile
 
+" Symbol renaming.
+nmap <leader>rn <Plug>(coc-rename)
+
+" Formatting selected code.
+xmap <leader>s  <Plug>(coc-format-selected)
+nmap <leader>s  <Plug>(coc-format-selected)
+
+" Use tab for trigger completion with characters ahead and navigate.
+" NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
+" other plugin before putting this into your config.
+inoremap <silent><expr> <TAB>
+      \ coc#pum#visible() ? coc#pum#next(1):
+      \ CheckBackspace() ? "\<Tab>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
+
 " ================== COMMANDS ===================
-command! -nargs=0 Fmt :CocCommand prettier.formatFile
+
+
+" ================== LUA ========================
+lua <<EOF
+require("nvim-autopairs").setup {}
+EOF
