@@ -150,5 +150,6 @@ inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
 
 " ================== LUA ========================
 lua <<EOF
+vim.o.ch = 0
 require("nvim-autopairs").setup {}
 EOF
