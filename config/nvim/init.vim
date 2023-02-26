@@ -5,9 +5,6 @@ call plug#begin('~/.vim/plugged')
 Plug 'junegunn/vim-easy-align'
 Plug 'wakatime/vim-wakatime'
 
-" Themes
-Plug 'morhetz/gruvbox'
-
 " Airline
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -29,7 +26,6 @@ Plug 'nsf/gocode', { 'tag': 'v.20150303', 'rtp': 'vim' }
 
 " NERDTree Syntax Highlighting
 Plug 'ryanoasis/vim-devicons'
-Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 
 " Fuzzy Finder
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -47,13 +43,15 @@ Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 " Auto pairs
 Plug 'windwp/nvim-autopairs'
 
+Plug 'Mofiqul/adwaita.nvim'
+
 " Initialize plugin system
 call plug#end()
 
 " ================== LET ===================
 
 " NerdTree
-let NERDTreeIgnore=['git', 'node_modules$', '**/node_modules$']
+let NERDTreeIgnore=['.git$', 'node_modules$', '**/node_modules$']
 let g:NERDTreeShowHidden = 1
 let g:NERDTreeMinimalUI = 1
 let g:NERDTreeStatusline = ''
@@ -66,16 +64,12 @@ let g:fzf_action = {
   \ 'ctrl-v': 'vsplit'
   \}
 
-let g:gruvbox_italic = 1
-let g:gruvbox_contrast_dark='medium'
-
-let g:airline_theme='base16_gruvbox_dark_medium'
+let g:airline_theme='minimalist'
 
 " ================== SET ===================
 
-colorscheme gruvbox 
+colorscheme adwaita
 set termguicolors
-
 
 " open new split panes to right and below
 set splitright
@@ -98,6 +92,7 @@ set tw=0
 set ts=4
 set shiftwidth=4
 set expandtab
+set nowrap
 
 " Line numbers
 set number
@@ -129,6 +124,10 @@ nnoremap <C-p> :FZF<CR>
 " Format with prettier
 noremap <A-s> :CocCommand prettier.formatFile
 
+map  <C-l> :tabn<CR>
+map  <C-h> :tabp<CR>
+map  <C-n> :tabnew<CR>
+
 " Symbol renaming.
 nmap <leader>rn <Plug>(coc-rename)
 
@@ -139,17 +138,13 @@ nmap <leader>s  <Plug>(coc-format-selected)
 " Use tab for trigger completion with characters ahead and navigate.
 " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
 " other plugin before putting this into your config.
-inoremap <silent><expr> <TAB>
+inoremap <silent><expr> <C-/>
       \ coc#pum#visible() ? coc#pum#next(1):
-      \ CheckBackspace() ? "\<Tab>" :
+      \ CheckBackspace() ? "\<C-/>" :
       \ coc#refresh()
 inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
 
-" ================== COMMANDS ===================
-
-
 " ================== LUA ========================
 lua <<EOF
-vim.o.ch = 0
 require("nvim-autopairs").setup {}
 EOF
