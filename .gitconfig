@@ -10,21 +10,24 @@
 [tag]
         forceSignAnnotated = true
 [alias]
-        pl   = pull
-        c    = commit
-        cm   = commit -m
-        cam  = commit -am
-	      camm = commit --amend
-        st   = status
-        br   = branch
-        rb   = rebase
-        sh   = stash
-        ps   = push
-        cl   = clone
-        sw   = switch
+        pl = pull
+        c = commit
+        cm = commit -m
+        cam = commit -am
+        camm = commit --amend
+        psf = push --force-with-lease
+        pst = push --follow-tags
+        rmt = remote
+        st = status
+        br = branch
+        rb = rebase
+        sh = stash
+        ps  = push
+        cl = clone
+        sw = switch
         undo = reset HEAD~
-        lg   = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
-        lgd  = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit -p
+        lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+        lgd = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit -p
 [gpg]
         program = gpg2
 [gui]
