@@ -70,7 +70,7 @@ require("lazy").setup({
 
     {
       "nvim-telescope/telescope-fzf-native.nvim",
-      build = "make"
+      build = "make",
     },
 
     {
@@ -80,9 +80,11 @@ require("lazy").setup({
           "nvim-lua/popup.nvim",
           "nvim-lua/plenary.nvim",
       },
+      requires = {
+          "nvim-telescope/telescope-fzf-native.nvim",
+      },
       config = function()
           require("telescope").setup {}
-          require('telescope').load_extension('fzf')
       end
     },
 })
