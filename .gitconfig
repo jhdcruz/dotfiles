@@ -1,7 +1,7 @@
 [user]
-        email = 
-        name = 
-        signingkey = 
+        email =
+        name =
+	signingkey =
 [core]
         editor = nvim
         longpaths = true
@@ -10,7 +10,8 @@
 [tag]
         forceSignAnnotated = true
 [alias]
-        pl = pull
+	pl = pull
+	sl = shortlog
         c = commit
         cm = commit -m
         cam = commit -am
@@ -26,8 +27,8 @@
         cl = clone
         sw = switch
         undo = reset HEAD~
-        lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
-        lgd = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit -p
+        lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --use-mailmap
+        lgd = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit -p --use-mailmap
 [gpg]
         program = gpg2
 [gui]
@@ -45,3 +46,5 @@
 	helper = !/usr/bin/gh auth git-credential
 [pull]
 	rebase = true
+[log]
+	mailmap = true
