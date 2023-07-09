@@ -13,8 +13,9 @@ local function edit_or_open()
     else
         -- open file
         tree.node.open.edit()
+
         -- Close the tree if file was opened
-        tree.tree.close()
+        -- tree.tree.close()
     end
 end
 
