@@ -1,3 +1,5 @@
+---@diagnostic disable: different-requires
+
 Plugins = {
     "folke/which-key.nvim",
     "folke/neodev.nvim",
@@ -35,10 +37,8 @@ Plugins = {
     {
         "zbirenbaum/copilot.lua",
         config = function()
-            require("copilot").setup({
-                suggestion = { enabled = false },
-                panel = { enabled = false },
-            })
+            require("configs.copilot")
+            require("copilot").setup(CopilotSetup)
         end
     },
     {
@@ -54,41 +54,8 @@ Plugins = {
             "antosha417/nvim-lsp-file-operations",
         },
         config = function()
-            require("tree")
-            require("nvim-tree").setup {
-                disable_netrw = true,
-                hijack_netrw = true,
-                open_on_tab = false,
-                hijack_cursor = false,
-                update_cwd = false,
-                update_focused_file = {
-                    enable = true,
-                    update_cwd = false,
-                    ignore_list = {}
-                },
-                system_open = {
-                    cmd = nil,
-                    args = {}
-                },
-                view = {
-                    width = 36,
-                    side = "left",
-                },
-                filters = {
-                    custom = {
-                        "^.git$",
-                        "^node_modules$",
-                        "^.idea$",
-                    }
-                },
-                renderer = {
-                    group_empty = true,
-                },
-                on_attach = TreeAttach
-            }
-
-            vim.keymap.set('n', '<A-1>', ':NvimTreeToggle<CR>', { silent = true, noremap = true })
-            vim.keymap.set('n', '<leader>e', ':NvimTreeOpen<CR>', { silent = true, noremap = true })
+            require("configs.tree")
+            require("nvim-tree").setup(TreeSetup)
         end
     },
     {
@@ -130,16 +97,7 @@ Plugins = {
         },
         config = function()
             require("telescope").setup {}
-
-            local builtin = require('telescope.builtin')
-            vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
-            vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
-            vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
-            vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
-
-            vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
-            vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
-            vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist)
+            require("configs.telescope")
         end
     },
 
@@ -163,59 +121,7 @@ Plugins = {
             "hrsh7th/cmp-words",
         },
         config = function()
-            local cmp = require('cmp')
-
-            local has_words_before = function()
-                if vim.api.nvim_buf_get_option(0, "buftype") == "prompt" then return false end
-                local line, col = table.unpack(vim.api.nvim_win_get_cursor(0))
-                return col ~= 0 and vim.api.nvim_buf_get_text(0, line - 1, 0, line - 1, col, {})[1]:match("^%s*$") == nil
-            end
-
-            cmp.setup {
-                snippet = {
-                    expand = function(args)
-                        vim.fn["vsnip#anonymous"](args.body)
-                    end
-                },
-                mapping = {
-                    ['<C-d>'] = cmp.mapping.scroll_docs(-4),
-                    ['<C-f>'] = cmp.mapping.scroll_docs(4),
-                    ['<C-e>'] = cmp.mapping.close(),
-                    ['<CR>'] = cmp.mapping.confirm {
-                        behavior = cmp.ConfirmBehavior.Replace,
-                        select = true,
-                    },
-                    ["<leader-TAB>"] = vim.schedule_wrap(function(fallback)
-                        if cmp.visible() and has_words_before() then
-                            cmp.select_next_item({ behavior = cmp.SelectBehavior.Select })
-                        else
-                            fallback()
-                        end
-                    end),
-                    ["<leader-`>"] = vim.schedule_wrap(function(fallback)
-                        if cmp.visible() and has_words_before() then
-                            cmp.select_prev_item({ behavior = cmp.SelectBehavior.Select })
-                        else
-                            fallback()
-                        end
-                    end),
-                },
-                sources = {
-                    { name = "copilot",   group_index = 3 },
-                    { name = 'nvim_lsp' },
-                    { name = 'vsnip' },
-                    { name = 'buffer' },
-                    { name = 'path' },
-                    { name = 'nvim_lua' },
-                    { name = 'calc' },
-                    { name = 'emoji' },
-                    { name = 'look' },
-                    { name = 'treesitter' },
-                    { name = 'cmdline' },
-                    { name = 'ultisnips' },
-                    { name = 'words' },
-                }
-            }
+            require("configs.cmp")
         end
     },
     {
@@ -242,33 +148,7 @@ Plugins = {
             "williamboman/mason-lspconfig.nvim",
         },
         config = function()
-            -- Use LspAttach autocommand to only map the following keys
-            -- after the language server attaches to the current buffer
-            vim.api.nvim_create_autocmd('LspAttach', {
-                group = vim.api.nvim_create_augroup('UserLspConfig', {}),
-                callback = function(ev)
-                    -- Buffer local mappings.
-                    -- See `:help vim.lsp.*` for documentation on any of the below functions
-                    local opts = { buffer = ev.buf }
-                    vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
-                    vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
-                    vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
-                    vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
-                    vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, opts)
-                    vim.keymap.set('n', '<space>wa', vim.lsp.buf.add_workspace_folder, opts)
-                    vim.keymap.set('n', '<space>wr', vim.lsp.buf.remove_workspace_folder, opts)
-                    vim.keymap.set('n', '<space>wl', function()
-                        print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
-                    end, opts)
-                    vim.keymap.set('n', '<space>D', vim.lsp.buf.type_definition, opts)
-                    vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, opts)
-                    vim.keymap.set({ 'n', 'v' }, '<space>ca', vim.lsp.buf.code_action, opts)
-                    vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
-                    vim.keymap.set('n', '<space>f', function()
-                        vim.lsp.buf.format { async = true }
-                    end, opts)
-                end,
-            })
+            require("configs.lspconfig")
         end
     },
     {
