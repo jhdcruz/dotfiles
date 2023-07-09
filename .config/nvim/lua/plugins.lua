@@ -138,7 +138,6 @@ Plugins = {
         },
         config = function()
             require("mason-lspconfig").setup()
-            require("mason-lspconfig").setup_handlers {}
         end
     },
     {
