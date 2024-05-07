@@ -1,7 +1,7 @@
 local tree = require("nvim-tree.api")
 
 -- Global mappings for nvim-tree
-vim.keymap.set('n', '<A-1>', ':NvimTreeToggle<CR>', { silent = true, noremap = true })
+vim.keymap.set('n', '<A>h', ':NvimTreeToggle<CR>', { silent = true, noremap = true })
 vim.keymap.set('n', '<leader>e', ':NvimTreeOpen<CR>', { silent = true, noremap = true })
 
 local function edit_or_open()

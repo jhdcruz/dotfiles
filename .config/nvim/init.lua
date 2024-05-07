@@ -33,7 +33,6 @@ vim.opt.number = true
 vim.opt.textwidth = 0
 vim.opt.cmdheight = 0
 vim.opt.expandtab = true
-vim.opt.shell = "/bin/zsh"
 
 -- split panels
 vim.opt.splitbelow = true
