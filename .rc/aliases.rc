@@ -6,18 +6,16 @@ alias sctl='sudo systemctl'
 alias lctl='loginctl'
 
 # package manager
-alias din='sudo dnf install'
-alias dup='sudo dnf upgrade --refresh'
-alias drm='sudo dnf remove'
-alias dss='sudo dnf search'
-alias dsi='sudo dnf search installed'
+alias zi='sudo zypper in'
+alias zu='sudo zypper dup'
+alias zr='sudo zypper rm'
 
 alias fin='flatpak install'
 alias frm='flatpak remove --delete-data'
 alias fup='flatpak update'
 alias fupp='flatpak update --appstream'
 
-alias dfup='sudo dnf upgrade --refresh -y && flatpak update -y'
+alias zf='sudo zypper dup --no-confirm && flatpak update -y --noninteractive'
 
 # colorls
 alias ls='colorls --sd'
@@ -29,29 +27,30 @@ alias l='colorls --sd'
 alias pm='pnpm'
 alias lg='lazygit'
 alias g='git'
-alias gsync='git pl && git ps'
+alias gsy='git pl && git ps'
 alias y='yarn'
-alias tb='toolbox'
+alias b='bun'
+alias box='distrobox'
+alias pdm='podman'
+alias dpr='doppler run --'
 
 # Working Directory
+alias ff='yy'
 alias cwda='cd ~/Documents/Acads'
 alias cwd='cd ~/Projects'
 alias cwdl='cd ~/Projects/libs'
 
 # config
-alias vbrc='vi ~/.zshrc'
-alias vbas='vi ~/.rc/aliases.rc'
+alias vbrc='vi ~/.bashrc'
+alias vprof='vi ~/.profile'
+alias vbas='vi ~/.alias'
+alias vzj='vi ~/.config/zellij/config.kdl'
 alias ssha='eval `ssh-agent -s`'
 
-# file
-alias rg='ranger .'
-alias rgr='ranger ~/'
-
-# edit
+# edit/system
+alias inf='fastfetch'
+alias cat='bat'
 alias vi='nvim'
-alias vedit='nvim ~/.config/nvim/init.lua'
-alias vide='nvim +NERDTree'
-alias viplug='nvim +PlugInstall'
 alias vgit='nvim ~/.gitconfig'
 alias gef='gnome-text-editor'
 
@@ -66,4 +65,7 @@ alias smbs='sudo systemctl start smb'
 alias cls='clear'
 alias k='clear'
 alias rcref='. ~/.bashrc'
-alias bye='shutdown now'
+
+# some distros requires superuser
+alias bye='sudo shutdown now'
+

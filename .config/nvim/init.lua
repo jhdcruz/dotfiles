@@ -1,48 +1,39 @@
-require("plugins")
+vim.g.base46_cache = vim.fn.stdpath "data" .. "/nvchad/base46/"
+vim.g.mapleader = " "
 
-local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+-- bootstrap lazy and all plugins
+local lazypath = vim.fn.stdpath "data" .. "/lazy/lazy.nvim"
 
 if not vim.loop.fs_stat(lazypath) then
-    vim.fn.system(
-        {
-            "git",
-            "clone",
-            "--filter=blob:none",
-            "https://github.com/folke/lazy.nvim.git",
-            "--branch=stable", -- latest stable release
-            lazypath
-        }
-    )
+  local repo = "https://github.com/folke/lazy.nvim.git"
+  vim.fn.system { "git", "clone", "--filter=blob:none", repo, "--branch=stable", lazypath }
 end
 
-
--- LAZY PRE-REQUISITES
 vim.opt.rtp:prepend(lazypath)
 
--- disable netrw
-vim.g.loaded_netrw = 1
-vim.g.loaded_netrwPlugin = 1
+local lazy_config = require "configs.lazy"
 
--- Set map leader
-vim.g.mapleader = " " -- Space
-vim.opt.termguicolors = true
+-- load plugins
+require("lazy").setup({
+  {
+    "NvChad/NvChad",
+    lazy = false,
+    branch = "v2.5",
+    import = "nvchad.plugins",
+    config = function()
+      require "options"
+    end,
+  },
 
--- display settings
-vim.opt.wrap = false
-vim.opt.number = true
-vim.opt.textwidth = 0
-vim.opt.cmdheight = 0
-vim.opt.expandtab = true
+  { import = "plugins" },
+}, lazy_config)
 
--- split panels
-vim.opt.splitbelow = true
-vim.opt.splitright = true
+-- load theme
+dofile(vim.g.base46_cache .. "defaults")
+dofile(vim.g.base46_cache .. "statusline")
 
--- split panels using alt + hjkl
-vim.api.nvim_set_keymap("n", "<M-h>", "<C-w>h", { noremap = true })
-vim.api.nvim_set_keymap("n", "<M-j>", "<C-w>j", { noremap = true })
-vim.api.nvim_set_keymap("n", "<M-k>", "<C-w>k", { noremap = true })
-vim.api.nvim_set_keymap("n", "<M-l>", "<C-w>l", { noremap = true })
+require "nvchad.autocmds"
 
--- Lazy plugins setup
-require("lazy").setup(Plugins)
+vim.schedule(function()
+  require "mappings"
+end)

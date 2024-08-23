@@ -1,8 +1,4 @@
 # Dotfiles
 
-Contains configs for the ff:
+Personal configuration and tooling.
 
-- **`conky`** (System Monitor/Widget)
-- **`bash_it`** (Bash Themes)
-
-and other configs as `.bash_aliases`.

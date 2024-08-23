@@ -1,7 +1,7 @@
 [user]
         email =
-        name =
-	signingkey =
+        name = jhdcruz
+        signingkey =
 [core]
         editor = nvim
         longpaths = true
@@ -10,8 +10,8 @@
 [tag]
         forceSignAnnotated = true
 [alias]
-	pl = pull
-	sl = shortlog
+        pl = pull
+        sl = shortlog
         c = commit
         cm = commit -m
         cam = commit -am
@@ -47,4 +47,5 @@
 [pull]
 	rebase = true
 [log]
-	mailmap = true
+  mailmap = true
+
