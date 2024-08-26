@@ -1,6 +1,6 @@
 [user]
         email =
-        name = jhdcruz
+        name =
         signingkey =
 [core]
         editor = nvim
@@ -9,6 +9,33 @@
         gpgSign = true
 [tag]
         forceSignAnnotated = true
+[sendemail]
+        smtpServer = smtp.gmail.com
+        smtpServerPort = 587
+        smtpEncryption = tls
+        smtpUser =
+        smtpPass =
+[gpg]
+        program = gpg
+[gui]
+        pruneduringfetch = true
+        encoding = UTF-8
+[push]
+        recurseSubmodules = check
+[gc]
+        autoDetach = false
+[pull]
+        rebase = true
+[log]
+        mailmap = true
+[credential]
+        helper = store
+[credential "https://github.com"]
+        helper =
+        helper = !/usr/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+        helper =
+        helper = !/usr/bin/gh auth git-credential
 [alias]
         pl = pull
         sl = shortlog
@@ -27,25 +54,7 @@
         cl = clone
         sw = switch
         undo = reset HEAD~
+        fm = format-patch
+        se = send-email
         lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --use-mailmap
         lgd = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit -p --use-mailmap
-[gpg]
-        program = gpg2
-[gui]
-        pruneduringfetch = true
-        encoding = UTF-8
-[push]
-        recurseSubmodules = check
-[gc]
-        autoDetach = false
-[credential "https://github.com"]
-	helper = 
-	helper = !/usr/bin/gh auth git-credential
-[credential "https://gist.github.com"]
-	helper = 
-	helper = !/usr/bin/gh auth git-credential
-[pull]
-	rebase = true
-[log]
-  mailmap = true
-
