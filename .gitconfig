@@ -1,60 +1,63 @@
 [user]
-        email =
-        name =
-        signingkey =
+	email =
+	name =
+	signingkey =
 [core]
-        editor = nvim
-        longpaths = true
+	editor = nvim
+	longpaths = true
+	# for Windows with ssh-agent configured 
+	# https://superuser.com/questions/1327633/how-to-maintain-ssh-agent-login-session-with-windows-10s-new-openssh-and-powers
+	# sshCommand = C:/Windows/System32/OpenSSH/ssh.exe
 [commit]
-        gpgSign = true
+	gpgSign = true
 [tag]
-        forceSignAnnotated = true
+	forceSignAnnotated = true
 [sendemail]
-        smtpServer = smtp.gmail.com
-        smtpServerPort = 587
-        smtpEncryption = tls
-        smtpUser =
-        smtpPass =
+	smtpServer = smtp.gmail.com
+	smtpServerPort = 587
+	smtpEncryption = tls
+	smtpUser =
+	smtpPass =
 [gpg]
-        program = gpg
+	program = gpg
 [gui]
-        pruneduringfetch = true
-        encoding = UTF-8
+	pruneduringfetch = true
+	encoding = UTF-8
 [push]
-        recurseSubmodules = check
+	recurseSubmodules = check
 [gc]
-        autoDetach = false
+	autoDetach = false
 [pull]
-        rebase = true
+	rebase = true
 [log]
-        mailmap = true
+	mailmap = true
 [credential]
-        helper = store
+	helper = store
 [credential "https://github.com"]
-        helper =
-        helper = !/usr/bin/gh auth git-credential
+	helper =
+	helper = !/usr/bin/gh auth git-credential
 [credential "https://gist.github.com"]
-        helper =
-        helper = !/usr/bin/gh auth git-credential
+	helper =
+	helper = !/usr/bin/gh auth git-credential
 [alias]
-        pl = pull
-        sl = shortlog
-        c = commit
-        cm = commit -m
-        cam = commit -am
-        camm = commit --amend
-        psf = push --force-with-lease
-        pst = push --follow-tags
-        rmt = remote
-        st = status
-        br = branch
-        rb = rebase
-        sh = stash
-        ps  = push
-        cl = clone
-        sw = switch
-        undo = reset HEAD~
-        fm = format-patch
-        se = send-email
-        lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --use-mailmap
-        lgd = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit -p --use-mailmap
+	pl = pull
+	sl = shortlog
+	c = commit
+	cm = commit -m
+	cam = commit -am
+	camm = commit --amend
+	psf = push --force-with-lease
+	pst = push --follow-tags
+	rmt = remote
+	st = status
+	br = branch
+	rb = rebase
+	sh = stash
+	ps  = push
+	cl = clone
+	sw = switch
+	undo = reset HEAD~
+	fm = format-patch
+	se = send-email
+	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --use-mailmap
+	lgd = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit -p --use-mailmap
