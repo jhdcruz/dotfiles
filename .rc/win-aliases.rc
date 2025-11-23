@@ -1,0 +1,35 @@
+# dev
+alias pm='pnpm'
+alias lg='lazygit'
+alias g='git'
+alias gsy='git pull && git push'
+alias y='yarn'
+alias b='bun'
+alias dpr='doppler run --'
+alias php='php.exe'
+
+# dev 2
+alias nph='npm run hot'
+alias npd='npm run dev'
+alias popt='php artisan optimize:clear && php artisan optimize'
+alias popc='php artisan optimize:clear'
+alias pcl='php artisan config:clear && php artisan config:cache'
+alias pam='php artisan migrate'
+alias pamf='php artisan migrate:fresh --seed'
+alias msl='mysql -u root -p'
+
+# Working Directory
+alias cwd='cd ~/Projects'
+alias cwdl='cd ~/Projects/libs'
+
+# config
+alias vbrc='vi ~/.bashrc'
+alias vgit='vi ~/.gitconfig'
+alias vprof='vi ~/.profile'
+alias vbas='vi ~/.aliases.rc'
+
+# etc
+alias cls='clear'
+alias k='clear'
+alias rcref='. ~/.bashrc'
+
