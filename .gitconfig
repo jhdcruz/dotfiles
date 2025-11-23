@@ -39,7 +39,18 @@
 [credential "https://gist.github.com"]
 	helper =
 	helper = !/usr/bin/gh auth git-credential
+#[credential "https://github.com"]
+#	helper = 
+#	helper = !'C:\\Program Files\\GitHub CLI\\gh.exe' auth git-credential
+#[credential "https://gist.github.com"]
+#	helper = 
+#	helper = !'C:\\Program Files\\GitHub CLI\\gh.exe' auth git-credential
+#[init]
+#	defaultBranch = main
+#[gpg]
+#	program = C:\\Program Files\\Git\\usr\\bin\\gpg.exe
 [alias]
+	mrd = merge remotes/origin/develop
 	pl = pull
 	sl = shortlog
 	c = commit
@@ -52,12 +63,24 @@
 	st = status
 	br = branch
 	rb = rebase
+	wr = worktree remove
+	wa = worktree add
+	wl = worktree list 
 	sh = stash
 	ps  = push
+	fl = flow
 	cl = clone
+	fe = fetch
 	sw = switch
 	undo = reset HEAD~
+	mt = maintenance
+	mtr = maintenance run
 	fm = format-patch
+	ds = diff --staged
 	se = send-email
-	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --use-mailmap
-	lgd = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit -p --use-mailmap
+	bs = bisect
+	res = restore
+	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --use-mailmap --no-merges
+	lgd = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit -p --use-mailmap --no-merges
+[maintenance]
+	repo = C:/Users/dcjhe/Projects/ehr
