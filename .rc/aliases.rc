@@ -3,19 +3,22 @@ alias _='sudo'
 alias __='sudo -i'
 alias se='sudo -e'
 alias sctl='sudo systemctl'
+alias jtl='journalctl'
 alias lctl='loginctl'
 
 # package manager
-alias zi='sudo zypper in'
-alias zu='sudo zypper dup'
-alias zr='sudo zypper rm'
+alias din='sudo dnf install'
+alias drm='sudo dnf remove'
+alias dsi='sudo dnf search installed'
+alias dss='sudo dnf search'
 
 alias fin='flatpak install'
 alias frm='flatpak remove --delete-data'
 alias fup='flatpak update'
 alias fupp='flatpak update --appstream'
 
-alias zf='sudo zypper dup --no-confirm && flatpak update -y --noninteractive'
+alias dfup='sudo dnf upgrade -y && flatpak update -y --noninteractive'
+alias bye='shutdown now'
 
 # colorls
 alias ls='colorls --sd'
@@ -27,45 +30,37 @@ alias l='colorls --sd'
 alias pm='pnpm'
 alias lg='lazygit'
 alias g='git'
-alias gsy='git pl && git ps'
+alias gsy='git pull && git push'
 alias y='yarn'
 alias b='bun'
-alias box='distrobox'
-alias pdm='podman'
 alias dpr='doppler run --'
 
+# dev 2
+alias nph='npm run hot'
+alias npd='npm run dev'
+alias popt='php artisan optimize:clear && php artisan optimize'
+alias popc='php artisan optimize:clear'
+alias pcl='php artisan config:clear && php artisan config:cache'
+alias pam='php artisan migrate'
+alias pamf='php artisan migrate:fresh --seed'
+alias msl='mysql -u root -p'
+alias pdev="concurrently 'php artisan serve' 'npm run hot'"
+alias pdevw="concurrently 'php artisan serve' 'npm run hot' 'node websocket.js'"
+
 # Working Directory
-alias ff='yy'
-alias cwda='cd ~/Documents/Acads'
+alias cdd='cd ~/Downloads'
 alias cwd='cd ~/Projects'
+alias ehr='cd ~/Projects/ehr'
 alias cwdl='cd ~/Projects/libs'
+alias exp='nautilus'
 
 # config
 alias vbrc='vi ~/.bashrc'
+alias vgit='vi ~/.gitconfig'
 alias vprof='vi ~/.profile'
-alias vbas='vi ~/.alias'
-alias vzj='vi ~/.config/zellij/config.kdl'
-alias ssha='eval `ssh-agent -s`'
-
-# edit/system
-alias inf='fastfetch'
-alias cat='bat'
-alias vi='nvim'
-alias vgit='nvim ~/.gitconfig'
-alias gef='gnome-text-editor'
-
-# services
-alias plex='sudo systemctl start plexmediaserver'
-alias splex='sudo systemctl stop plexmediaserver'
-alias bt='sudo systemctl start bluetooth'
-alias sbt='sudo systemctl stop bluetooth'
-alias smbs='sudo systemctl start smb'
+alias vbas='vi ~/.rc/aliases.rc'
 
 # etc
 alias cls='clear'
 alias k='clear'
 alias rcref='. ~/.bashrc'
-
-# some distros requires superuser
-alias bye='sudo shutdown now'
-
