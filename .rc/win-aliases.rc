@@ -2,11 +2,13 @@
 alias pm='pnpm'
 alias lg='lazygit'
 alias g='git'
+alias gup='git update-git-for-windows'
 alias gsy='git pull && git push'
 alias y='yarn'
 alias b='bun'
 alias dpr='doppler run --'
 alias php='php.exe'
+alias gclean='git branch | grep -v "^\*|develop" | xargs git branch -D'
 
 # dev 2
 alias nph='npm run hot'
@@ -15,21 +17,29 @@ alias popt='php artisan optimize:clear && php artisan optimize'
 alias popc='php artisan optimize:clear'
 alias pcl='php artisan config:clear && php artisan config:cache'
 alias pam='php artisan migrate'
-alias pamf='php artisan migrate:fresh --seed'
+alias pamr='php artisan migrate:rollback'
+alias pa='php artisan'
+alias pamf='echo "Fresh migrating..." && sleep 5 && php artisan migrate:fresh --seed'
+alias pseed='php artisan db:seed --class'
+alias pperm='php artisan db:seed --class RolesAndPermissionsSeeder'
+alias pqu='php artisan queue:work --queue=default,reports,documents'
+alias ws='node websocket.js'
 alias msl='mysql -u root -p'
 
 # Working Directory
-alias cwd='cd ~/Projects'
-alias cwdl='cd ~/Projects/libs'
+alias cwd='cd /ddev'
+alias ehr='cd /ddev/ehr'
+alias cwp='cd /ddev/cit-web-portal'
+alias cwdl='cd /ddev/libs'
 
 # config
 alias vbrc='vi ~/.bashrc'
 alias vgit='vi ~/.gitconfig'
-alias vprof='vi ~/.profile'
-alias vbas='vi ~/.aliases.rc'
+alias vprof='vi ~/.bash_profile'
+alias vbas='vi ~/.bash_aliases'
 
 # etc
 alias cls='clear'
 alias k='clear'
-alias rcref='. ~/.bashrc'
+alias rcref='. ~/.bash_profile'
 
